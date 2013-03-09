@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Android</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{988A5C4D-5800-43FA-8A4F-18A0F271F073}</ProjectGuid>
+    <TargetNMMLFile>project.nmml</TargetNMMLFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Android' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|BlackBerry' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Flash' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|HTML5' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iOS' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+    <AdditionalArguments>-simulator</AdditionalArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Linux' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Mac' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|webOS' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Android' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|BlackBerry' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Flash' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|HTML5' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iOS' ">
+    <OutputPath>.</OutputPath>
+    <AdditionalArguments>-simulator</AdditionalArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Linux' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Mac' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|webOS' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Assets\nme.svg" />
+    <Compile Include="Source\HaxeFlixel4.hx" />
+    <Compile Include="project.nmml" />
+    <Compile Include="Source\addons\BTNTilemap.hx" />
+    <Compile Include="Source\addons\FlxCaveGenerator.hx" />
+    <Compile Include="Source\addons\FlxEmitterExt.hx" />
+    <Compile Include="Source\addons\FlxSkewedSprite.hx" />
+    <Compile Include="Source\addons\FlxSpriteAniRot.hx" />
+    <Compile Include="Source\addons\FlxTilemapExt.hx" />
+    <Compile Include="Source\addons\FlxTrail.hx" />
+    <Compile Include="Source\addons\NestedSprite.hx" />
+    <Compile Include="Source\addons\OgmoLevelLoader.hx" />
+    <Compile Include="Source\addons\ZoomCamera.hx" />
+    <Compile Include="Source\org\flixel\FlxAnalog.hx" />
+    <Compile Include="Source\org\flixel\FlxAssets.hx" />
+    <Compile Include="Source\org\flixel\FlxBasic.hx" />
+    <Compile Include="Source\org\flixel\FlxButton.hx" />
+    <Compile Include="Source\org\flixel\FlxCamera.hx" />
+    <Compile Include="Source\org\flixel\FlxEmitter.hx" />
+    <Compile Include="Source\org\flixel\FlxG.hx" />
+    <Compile Include="Source\org\flixel\FlxGame.hx" />
+    <Compile Include="Source\org\flixel\FlxGamePad.hx" />
+    <Compile Include="Source\org\flixel\FlxGroup.hx" />
+    <Compile Include="Source\org\flixel\FlxLayer.hx" />
+    <Compile Include="Source\org\flixel\FlxObject.hx" />
+    <Compile Include="Source\org\flixel\FlxParticle.hx" />
+    <Compile Include="Source\org\flixel\FlxPath.hx" />
+    <Compile Include="Source\org\flixel\FlxPoint.hx" />
+    <Compile Include="Source\org\flixel\FlxRect.hx" />
+    <Compile Include="Source\org\flixel\FlxSave.hx" />
+    <Compile Include="Source\org\flixel\FlxSound.hx" />
+    <Compile Include="Source\org\flixel\FlxSprite.hx" />
+    <Compile Include="Source\org\flixel\FlxState.hx" />
+    <Compile Include="Source\org\flixel\FlxText.hx" />
+    <Compile Include="Source\org\flixel\FlxTextField.hx" />
+    <Compile Include="Source\org\flixel\FlxTileblock.hx" />
+    <Compile Include="Source\org\flixel\FlxTilemap.hx" />
+    <Compile Include="Source\org\flixel\FlxTimer.hx" />
+    <Compile Include="Source\org\flixel\FlxU.hx" />
+    <Compile Include="Source\org\flixel\plugin\DebugPathDisplay.hx" />
+    <Compile Include="Source\org\flixel\plugin\TimerManager.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxBar.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxBitmapFont.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxButtonPlus.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxCollision.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxColor.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxControl.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxControlHandler.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxCoreUtils.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxDelay.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxDisplay.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxExtendedSprite.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxGradient.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxGridOverlay.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxMath.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxMouseControl.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxPowerTools.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxSpecialFX.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxVelocity.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\FlxWeapon.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\api\FlxKongregate.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\baseTypes\Bullet.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\baseTypes\MouseSpring.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\fx\BaseFX.hx" />
+    <Compile Include="Source\org\flixel\plugin\photonstorm\fx\StarfieldFX.hx" />
+    <Compile Include="Source\org\flixel\plugin\pxText\FlxBitmapTextField.hx" />
+    <Compile Include="Source\org\flixel\plugin\pxText\PxBitmapFont.hx" />
+    <Compile Include="Source\org\flixel\plugin\pxText\PxButton.hx" />
+    <Compile Include="Source\org\flixel\plugin\pxText\PxDefaultFontGenerator.hx" />
+    <Compile Include="Source\org\flixel\plugin\pxText\PxFontSymbol.hx" />
+    <Compile Include="Source\org\flixel\plugin\pxText\PxTextAlign.hx" />
+    <Compile Include="Source\org\flixel\system\FlxAnim.hx" />
+    <Compile Include="Source\org\flixel\system\FlxDebugger.hx" />
+    <Compile Include="Source\org\flixel\system\FlxList.hx" />
+    <Compile Include="Source\org\flixel\system\FlxPreloader.hx" />
+    <Compile Include="Source\org\flixel\system\FlxQuadTree.hx" />
+    <Compile Include="Source\org\flixel\system\FlxReplay.hx" />
+    <Compile Include="Source\org\flixel\system\FlxTile.hx" />
+    <Compile Include="Source\org\flixel\system\FlxTilemapBuffer.hx" />
+    <Compile Include="Source\org\flixel\system\FlxWindow.hx" />
+    <Compile Include="Source\org\flixel\system\debug\Log.hx" />
+    <Compile Include="Source\org\flixel\system\debug\Perf.hx" />
+    <Compile Include="Source\org\flixel\system\debug\VCR.hx" />
+    <Compile Include="Source\org\flixel\system\debug\Vis.hx" />
+    <Compile Include="Source\org\flixel\system\debug\Watch.hx" />
+    <Compile Include="Source\org\flixel\system\debug\WatchEntry.hx" />
+    <Compile Include="Source\org\flixel\system\input\Input.hx" />
+    <Compile Include="Source\org\flixel\system\input\Joystick.hx" />
+    <Compile Include="Source\org\flixel\system\input\JoystickManager.hx" />
+    <Compile Include="Source\org\flixel\system\input\Keyboard.hx" />
+    <Compile Include="Source\org\flixel\system\input\MapObject.hx" />
+    <Compile Include="Source\org\flixel\system\input\Mouse.hx" />
+    <Compile Include="Source\org\flixel\system\input\Touch.hx" />
+    <Compile Include="Source\org\flixel\system\input\TouchManager.hx" />
+    <Compile Include="Source\org\flixel\system\layer\Atlas.hx" />
+    <Compile Include="Source\org\flixel\system\layer\Node.hx" />
+    <Compile Include="Source\org\flixel\system\layer\TileSheetData.hx" />
+    <Compile Include="Source\org\flixel\system\preloaderHelpers\PxBitmapFont.hx" />
+    <Compile Include="Source\org\flixel\system\preloaderHelpers\PxDefaultFontGenerator.hx" />
+    <Compile Include="Source\org\flixel\system\preloaderHelpers\PxTextField.hx" />
+    <Compile Include="Source\org\flixel\system\replay\CodeValuePair.hx" />
+    <Compile Include="Source\org\flixel\system\replay\FrameRecord.hx" />
+    <Compile Include="Source\org\flixel\system\replay\JoystickRecord.hx" />
+    <Compile Include="Source\org\flixel\system\replay\MouseRecord.hx" />
+    <Compile Include="Source\org\flixel\tweens\FlxTween.hx" />
+    <Compile Include="Source\org\flixel\tweens\misc\Alarm.hx" />
+    <Compile Include="Source\org\flixel\tweens\misc\AngleTween.hx" />
+    <Compile Include="Source\org\flixel\tweens\misc\ColorTween.hx" />
+    <Compile Include="Source\org\flixel\tweens\misc\MultiVarTween.hx" />
+    <Compile Include="Source\org\flixel\tweens\misc\NumTween.hx" />
+    <Compile Include="Source\org\flixel\tweens\misc\VarTween.hx" />
+    <Compile Include="Source\org\flixel\tweens\motion\CircularMotion.hx" />
+    <Compile Include="Source\org\flixel\tweens\motion\CubicMotion.hx" />
+    <Compile Include="Source\org\flixel\tweens\motion\LinearMotion.hx" />
+    <Compile Include="Source\org\flixel\tweens\motion\LinearPath.hx" />
+    <Compile Include="Source\org\flixel\tweens\motion\Motion.hx" />
+    <Compile Include="Source\org\flixel\tweens\motion\QuadMotion.hx" />
+    <Compile Include="Source\org\flixel\tweens\motion\QuadPath.hx" />
+    <Compile Include="Source\org\flixel\tweens\sound\Fader.hx" />
+    <Compile Include="Source\org\flixel\tweens\sound\SfxFader.hx" />
+    <Compile Include="Source\org\flixel\tweens\util\Ease.hx" />
+    <Compile Include="Assets\data\autotiles.png" />
+    <Compile Include="Assets\data\autotiles_alt.png" />
+    <Compile Include="Assets\data\beep.mp3" />
+    <Compile Include="Assets\data\beep.wav" />
+    <Compile Include="Assets\data\button.png" />
+    <Compile Include="Assets\data\courier.ttf" />
+    <Compile Include="Assets\data\courier.ttf.hash" />
+    <Compile Include="Assets\data\cursor.png" />
+    <Compile Include="Assets\data\default.png" />
+    <Compile Include="Assets\data\fontData10pt.png" />
+    <Compile Include="Assets\data\fontData11pt.png" />
+    <Compile Include="Assets\data\handle.png" />
+    <Compile Include="Assets\data\logo.png" />
+    <Compile Include="Assets\data\logo_corners.png" />
+    <Compile Include="Assets\data\logo_light.png" />
+    <Compile Include="Assets\data\nokiafc22.ttf" />
+    <Compile Include="Assets\data\nokiafc22.ttf.hash" />
+    <Compile Include="Assets\data\vcr\flixel.png" />
+    <Compile Include="Assets\data\vcr\open.png" />
+    <Compile Include="Assets\data\vcr\pause.png" />
+    <Compile Include="Assets\data\vcr\play.png" />
+    <Compile Include="Assets\data\vcr\record_off.png" />
+    <Compile Include="Assets\data\vcr\record_on.png" />
+    <Compile Include="Assets\data\vcr\restart.png" />
+    <Compile Include="Assets\data\vcr\step.png" />
+    <Compile Include="Assets\data\vcr\stop.png" />
+    <Compile Include="Assets\data\vis\bounds.png" />
+    <Compile Include="Source\FlixelHaxeGame.hx" />
+    <Compile Include="Source\BaseLevel.hx" />
+    <Compile Include="Source\Level1.hx" />
+    <Compile Include="Source\Global.hx" />
+    <Compile Include="Assets\CHALONSE.TTF" />
+    <Compile Include="Source\org\flixel\FlxBackdrop.hx" />
+    <Compile Include="Stardust.hx" />
+    <Compile Include="Source\org\Detector.hx" />
+    <Compile Include="BG1.hx" />
+    <Compile Include="source\NewFlxTrail.hx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\addons\" />
+    <Folder Include="Source\org\" />
+    <Folder Include="Assets\data\" />
+  </ItemGroup>
+</Project>

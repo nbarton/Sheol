@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{319CB2C6-23BD-43E1-85B5-2AAFA3577041}") = "HaxeFlixel4", "HaxeFlixel4\HaxeFlixel4.nmeproj", "{988A5C4D-5800-43FA-8A4F-18A0F271F073}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Android = Debug|Android
+		Debug|BlackBerry = Debug|BlackBerry
+		Debug|Flash = Debug|Flash
+		Debug|HTML5 = Debug|HTML5
+		Debug|iOS = Debug|iOS
+		Debug|Linux = Debug|Linux
+		Debug|Mac = Debug|Mac
+		Debug|webOS = Debug|webOS
+		Debug|Windows = Debug|Windows
+		Release|Android = Release|Android
+		Release|BlackBerry = Release|BlackBerry
+		Release|Flash = Release|Flash
+		Release|HTML5 = Release|HTML5
+		Release|iOS = Release|iOS
+		Release|Linux = Release|Linux
+		Release|Mac = Release|Mac
+		Release|webOS = Release|webOS
+		Release|Windows = Release|Windows
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Android.ActiveCfg = Debug|Android
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Android.Build.0 = Debug|Android
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|BlackBerry.ActiveCfg = Debug|BlackBerry
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|BlackBerry.Build.0 = Debug|BlackBerry
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Flash.ActiveCfg = Debug|Flash
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Flash.Build.0 = Debug|Flash
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|HTML5.ActiveCfg = Debug|HTML5
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|HTML5.Build.0 = Debug|HTML5
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|iOS.ActiveCfg = Debug|iOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|iOS.Build.0 = Debug|iOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Linux.ActiveCfg = Debug|Linux
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Linux.Build.0 = Debug|Linux
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Mac.ActiveCfg = Debug|Mac
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Mac.Build.0 = Debug|Mac
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|webOS.ActiveCfg = Debug|webOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|webOS.Build.0 = Debug|webOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Windows.ActiveCfg = Debug|Windows
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Debug|Windows.Build.0 = Debug|Windows
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Android.ActiveCfg = Release|Android
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Android.Build.0 = Release|Android
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|BlackBerry.ActiveCfg = Release|BlackBerry
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|BlackBerry.Build.0 = Release|BlackBerry
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Flash.ActiveCfg = Release|Flash
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Flash.Build.0 = Release|Flash
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|HTML5.ActiveCfg = Release|HTML5
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|HTML5.Build.0 = Release|HTML5
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|iOS.ActiveCfg = Release|iOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|iOS.Build.0 = Release|iOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Linux.ActiveCfg = Release|Linux
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Linux.Build.0 = Release|Linux
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Mac.ActiveCfg = Release|Mac
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Mac.Build.0 = Release|Mac
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|webOS.ActiveCfg = Release|webOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|webOS.Build.0 = Release|webOS
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Windows.ActiveCfg = Release|Windows
+		{988A5C4D-5800-43FA-8A4F-18A0F271F073}.Release|Windows.Build.0 = Release|Windows
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = HaxeFlixel4\HaxeFlixel4.nmeproj
+	EndGlobalSection
+EndGlobal
