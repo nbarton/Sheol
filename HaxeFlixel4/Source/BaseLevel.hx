@@ -29,6 +29,14 @@ class BaseLevel extends FlxState
 	public var tailTimer: Int = 0;
 	public var detectTimer: Int = 0;
 	
+	public var point0:org.flixel.FlxPoint;
+	
+	public var point1:org.flixel.FlxPoint;
+	public var point2:org.flixel.FlxPoint;
+	public var point3:org.flixel.FlxPoint;
+	public var point4:org.flixel.FlxPoint;
+	public var point5:org.flixel.FlxPoint;
+	public var point6:org.flixel.FlxPoint;
 	public var dust1:Stardust;
 	public var dust2:Stardust;
 	public var dust3:Stardust;
@@ -54,7 +62,7 @@ class BaseLevel extends FlxState
 	override public function create():Void
 	{
 		FlxG.bgColor = 0xFF411B1B;
-		FlxG.mouse.show("assets/curs.png");
+		FlxG.mouse.show();
 		//FlxG.mouse.visible=false;
 		
 		
@@ -65,14 +73,22 @@ class BaseLevel extends FlxState
 		add(BG);
 		
 		//dust
-		dust1 = new Stardust(150,430);
-		dust2 = new Stardust(140,470);
-		dust3 = new Stardust(350,250);
-		dust4 = new Stardust(190,330);
-		dust5 = new Stardust(380,290);
-		dust6 = new Stardust(220,1);
+		point0 = new org.flixel.FlxPoint(0,0);
 		
-		//add(dust1);
+		point1 = new org.flixel.FlxPoint(150,430);
+		dust1 = new Stardust(point1.x,point1.y);
+		point2 = new org.flixel.FlxPoint(140,470);
+		dust2 = new Stardust(point2.x,point2.y);
+		point3 = new org.flixel.FlxPoint(350,250);
+		dust3 = new Stardust(point3.x,point3.y);
+		point4 = new org.flixel.FlxPoint(190,330);
+		dust4 = new Stardust(point4.x,point4.y);
+		point5 = new org.flixel.FlxPoint(380,290);
+		dust5 = new Stardust(point5.x,point5.y);
+		point6 = new org.flixel.FlxPoint(220,-30);
+		dust6 = new Stardust(point6.x,point6.y);
+		
+		add(dust1);
 		//add(dust2);
 		add(dust3);
 		add(dust4);
@@ -197,55 +213,71 @@ class BaseLevel extends FlxState
 		
 		
 		
-		if (FlxG.overlap(detector,dust1)){
-		trail.increaseLength(5);
-		dust1.exists = false;
-		score++;
-		trail.increaseLength(5);
-		tailLength+=5;
-		deathTimer=0;
 		
+		if (PNpoly(point1,point0,trail.recentPositions)&&detector.exists==true){
+			dust1.exists = false;
+			point1.x=0;
+			point1.y=0;
+			score++;
+			trail.increaseLength(5);
+			tailLength+=5;
+			deathTimer=0; 
 		}
 		
-			if (FlxG.overlap(detector,dust2)){
-		dust2.exists = false;
-		score++;
-		trail.increaseLength(5);
-		tailLength+=5;
-		deathTimer=0;
+		
+		
+		if (PNpoly(point2,point0,trail.recentPositions)&&detector.exists==true){
+			dust2.exists = false;
+			point2.x=0;
+			point2.y=0;
+			score++;
+			trail.increaseLength(5);
+			tailLength+=5;
+			deathTimer=0;
 		}
 		
-			if (FlxG.overlap(detector,dust3)){
-		dust3.exists = false;
-		score++;
-		trail.increaseLength(5);
-		tailLength+=5;
-		deathTimer=0;
+		if (PNpoly(point3,point0,trail.recentPositions)&&detector.exists==true){
+			dust3.exists = false;
+			point3.x=0;
+			point3.y=0;
+			score++;
+			trail.increaseLength(5);
+			tailLength+=5;
+			deathTimer=0;
 		}
 		
-			if (FlxG.overlap(detector,dust4)){
-		dust4.exists = false;
-		score++;
-		trail.increaseLength(5);
-		tailLength+=5;
-		deathTimer=0;
+		if (PNpoly(point4,point0,trail.recentPositions)&&detector.exists==true){
+			dust4.exists = false;
+			point4.x=0;
+			point4.y=0;
+			score++;
+			trail.increaseLength(5);
+			tailLength+=5;
+			deathTimer=0;
 		}
 		
-			if (FlxG.overlap(detector,dust5)){
-		dust5.exists = false;
-		score++;
-		trail.increaseLength(5);
-		tailLength+=5;
-		deathTimer=0;
+		if (PNpoly(point5,point0,trail.recentPositions)&&detector.exists==true){
+			dust5.exists = false;
+			point5.x=0;
+			point5.y=0;
+			score++;
+			trail.increaseLength(5);
+			tailLength+=5;
+			deathTimer=0;
 		}
 		
-		if (FlxG.overlap(detector,dust6)){
-		dust6.exists = false;
-		score++;
-		trail.increaseLength(5);
-		tailLength+=5;
-		deathTimer=0;
+		if (PNpoly(point6,point0,trail.recentPositions)&&detector.exists==true){
+			dust6.exists = false;
+			point6.x=0;
+			point6.y=0;
+			score++;
+			trail.increaseLength(5);
+			tailLength+=5;
+			deathTimer=0;
 		}
+		
+		
+		
 		
 		
 
@@ -352,6 +384,25 @@ class BaseLevel extends FlxState
 			detector.exists=true;
 			
 			
+		}
+		
+		public function PNpoly(pt:org.flixel.FlxPoint, pos:org.flixel.FlxPoint, verts:Array<org.flixel.FlxPoint>) : Bool {
+
+		    var c : Bool = false;
+		    var nvert : Int = verts.length;
+		    var j : Int = nvert - 1;
+
+		    for(i in 0 ... nvert) {            
+		        
+		        if ((( (verts[i].y+pos.y) > pt.y) != ((verts[j].y+pos.y) > pt.y)) &&
+		           (pt.x < ( (verts[j].x+pos.x) - (verts[i].x+pos.x)) * (pt.y - (verts[i].y+pos.y)) / ( (verts[j].y+pos.y) - (verts[i].y+pos.y)) + (verts[i].x+pos.x)) ) {
+		            c = !c;
+		        }
+
+		        j = i;
+		    }
+
+		    return c;
 		}
 	
 	

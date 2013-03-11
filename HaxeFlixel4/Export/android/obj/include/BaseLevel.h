@@ -15,6 +15,7 @@ HX_DECLARE_CLASS0(Stardust)
 HX_DECLARE_CLASS2(org,flixel,FlxBasic)
 HX_DECLARE_CLASS2(org,flixel,FlxGroup)
 HX_DECLARE_CLASS2(org,flixel,FlxObject)
+HX_DECLARE_CLASS2(org,flixel,FlxPoint)
 HX_DECLARE_CLASS2(org,flixel,FlxSprite)
 HX_DECLARE_CLASS2(org,flixel,FlxState)
 HX_DECLARE_CLASS2(org,flixel,FlxText)
@@ -39,6 +40,9 @@ class BaseLevel_obj : public ::org::flixel::FlxState_obj{
 		void __Mark(HX_MARK_PARAMS);
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("BaseLevel"); }
+
+		virtual bool PNpoly( ::org::flixel::FlxPoint pt,::org::flixel::FlxPoint pos,Array< ::org::flixel::FlxPoint > verts);
+		Dynamic PNpoly_dyn();
 
 		virtual Void detect( );
 		Dynamic detect_dyn();
@@ -67,6 +71,13 @@ class BaseLevel_obj : public ::org::flixel::FlxState_obj{
 		::Stardust dust3; /* REM */ 
 		::Stardust dust2; /* REM */ 
 		::Stardust dust1; /* REM */ 
+		::org::flixel::FlxPoint point6; /* REM */ 
+		::org::flixel::FlxPoint point5; /* REM */ 
+		::org::flixel::FlxPoint point4; /* REM */ 
+		::org::flixel::FlxPoint point3; /* REM */ 
+		::org::flixel::FlxPoint point2; /* REM */ 
+		::org::flixel::FlxPoint point1; /* REM */ 
+		::org::flixel::FlxPoint point0; /* REM */ 
 		int detectTimer; /* REM */ 
 		int tailTimer; /* REM */ 
 		Float tailAlphaDec; /* REM */ 

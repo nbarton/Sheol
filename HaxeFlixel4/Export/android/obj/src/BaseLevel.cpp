@@ -80,7 +80,7 @@ Void BaseLevel_obj::__construct()
 {
 HX_STACK_PUSH("BaseLevel::new","BaseLevel.hx",12);
 {
-	HX_STACK_LINE(51)
+	HX_STACK_LINE(59)
 	this->deathTimer = (int)0;
 	HX_STACK_LINE(30)
 	this->detectTimer = (int)0;
@@ -116,13 +116,49 @@ Dynamic BaseLevel_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct();
 	return result;}
 
+bool BaseLevel_obj::PNpoly( ::org::flixel::FlxPoint pt,::org::flixel::FlxPoint pos,Array< ::org::flixel::FlxPoint > verts){
+	HX_STACK_PUSH("BaseLevel::PNpoly","BaseLevel.hx",389);
+	HX_STACK_THIS(this);
+	HX_STACK_ARG(pt,"pt");
+	HX_STACK_ARG(pos,"pos");
+	HX_STACK_ARG(verts,"verts");
+	HX_STACK_LINE(391)
+	bool c = false;		HX_STACK_VAR(c,"c");
+	HX_STACK_LINE(392)
+	int nvert = verts->length;		HX_STACK_VAR(nvert,"nvert");
+	HX_STACK_LINE(393)
+	int j = (nvert - (int)1);		HX_STACK_VAR(j,"j");
+	HX_STACK_LINE(395)
+	{
+		HX_STACK_LINE(395)
+		int _g = (int)0;		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(395)
+		while(((_g < nvert))){
+			HX_STACK_LINE(395)
+			int i = (_g)++;		HX_STACK_VAR(i,"i");
+			HX_STACK_LINE(397)
+			if (((bool((((verts->__get(i)->y + pos->y) > pt->y) != ((verts->__get(j)->y + pos->y) > pt->y))) && bool((pt->x < ((Float(((((verts->__get(j)->x + pos->x) - ((verts->__get(i)->x + pos->x)))) * ((pt->y - ((verts->__get(i)->y + pos->y)))))) / Float((((verts->__get(j)->y + pos->y) - ((verts->__get(i)->y + pos->y)))))) + ((verts->__get(i)->x + pos->x)))))))){
+				HX_STACK_LINE(398)
+				c = !(c);
+			}
+			HX_STACK_LINE(402)
+			j = i;
+		}
+	}
+	HX_STACK_LINE(405)
+	return c;
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC3(BaseLevel_obj,PNpoly,return )
+
 Void BaseLevel_obj::detect( ){
 {
-		HX_STACK_PUSH("BaseLevel::detect","BaseLevel.hx",350);
+		HX_STACK_PUSH("BaseLevel::detect","BaseLevel.hx",382);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(351)
+		HX_STACK_LINE(383)
 		this->detectTimer = (int)0;
-		HX_STACK_LINE(352)
+		HX_STACK_LINE(384)
 		this->detector->exists = true;
 	}
 return null();
@@ -133,13 +169,13 @@ HX_DEFINE_DYNAMIC_FUNC0(BaseLevel_obj,detect,(void))
 
 Void BaseLevel_obj::redrawTail( ){
 {
-		HX_STACK_PUSH("BaseLevel::redrawTail","BaseLevel.hx",343);
+		HX_STACK_PUSH("BaseLevel::redrawTail","BaseLevel.hx",375);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(344)
+		HX_STACK_LINE(376)
 		this->trail->kill();
-		HX_STACK_LINE(345)
+		HX_STACK_LINE(377)
 		this->trail = ::NewFlxTrail_obj::__new(this->trailSprite,HX_CSTRING("assets/player.png"),this->tailLength,this->tailDelay,this->tailAlpha,this->tailAlphaDec);
-		HX_STACK_LINE(346)
+		HX_STACK_LINE(378)
 		this->add(this->trail);
 	}
 return null();
@@ -150,21 +186,21 @@ HX_DEFINE_DYNAMIC_FUNC0(BaseLevel_obj,redrawTail,(void))
 
 Void BaseLevel_obj::changeLength( int n){
 {
-		HX_STACK_PUSH("BaseLevel::changeLength","BaseLevel.hx",328);
+		HX_STACK_PUSH("BaseLevel::changeLength","BaseLevel.hx",360);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(n,"n");
-		HX_STACK_LINE(330)
+		HX_STACK_LINE(362)
 		int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
 		int _g = this->tailLength;		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(330)
+		HX_STACK_LINE(362)
 		while(((_g1 < _g))){
-			HX_STACK_LINE(330)
+			HX_STACK_LINE(362)
 			int i = (_g1)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(331)
+			HX_STACK_LINE(363)
 			if (((i > (n - (int)1)))){
-				HX_STACK_LINE(332)
+				HX_STACK_LINE(364)
 				this->trail->members->__get(i)->exists = false;
-				HX_STACK_LINE(333)
+				HX_STACK_LINE(365)
 				(this->tailLength - (int)1);
 			}
 		}
@@ -177,496 +213,308 @@ HX_DEFINE_DYNAMIC_FUNC1(BaseLevel_obj,changeLength,(void))
 
 Void BaseLevel_obj::update( ){
 {
-		HX_STACK_PUSH("BaseLevel::update","BaseLevel.hx",126);
+		HX_STACK_PUSH("BaseLevel::update","BaseLevel.hx",142);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(127)
+		HX_STACK_LINE(143)
 		this->super::update();
-		HX_STACK_LINE(130)
+		HX_STACK_LINE(146)
 		(this->deathTimer)++;
-		HX_STACK_LINE(131)
+		HX_STACK_LINE(147)
 		::org::flixel::FlxG_obj::log(this->deathTimer);
-		HX_STACK_LINE(133)
+		HX_STACK_LINE(149)
 		if (((this->deathTimer >= (int)450))){
-			HX_STACK_LINE(133)
+			HX_STACK_LINE(149)
 			::org::flixel::FlxG_obj::switchState(::Level1_obj::__new());
 		}
-		HX_STACK_LINE(138)
+		HX_STACK_LINE(154)
 		::org::flixel::FlxG_obj::camera->setBounds((int)-500,(int)-650,(int)1600,(int)1250,null());
-		HX_STACK_LINE(139)
+		HX_STACK_LINE(155)
 		::org::flixel::FlxG_obj::camera->follow(this->p1,(int)0,null());
-		HX_STACK_LINE(142)
+		HX_STACK_LINE(158)
 		(this->tailTimer)++;
-		HX_STACK_LINE(143)
+		HX_STACK_LINE(159)
 		if (((this->tailTimer >= (int)20))){
-			HX_STACK_LINE(143)
+			HX_STACK_LINE(159)
 			this->tailTimer = (int)0;
 		}
-		HX_STACK_LINE(150)
+		HX_STACK_LINE(166)
 		(this->detectTimer)++;
-		HX_STACK_LINE(151)
+		HX_STACK_LINE(167)
 		if (((this->detectTimer >= (int)3))){
-			HX_STACK_LINE(152)
+			HX_STACK_LINE(168)
 			this->detector->exists = false;
-			HX_STACK_LINE(153)
+			HX_STACK_LINE(169)
 			this->p1->setColor((int)16777215);
 		}
-		HX_STACK_LINE(157)
+		HX_STACK_LINE(173)
 		this->scoreText->setText((HX_CSTRING("score: ") + ::Std_obj::string(this->tailLength)));
-		HX_STACK_LINE(160)
+		HX_STACK_LINE(176)
 		this->mouseSprite->x = ::org::flixel::FlxG_obj::mouse->x;
-		HX_STACK_LINE(161)
+		HX_STACK_LINE(177)
 		this->mouseSprite->y = ::org::flixel::FlxG_obj::mouse->y;
-		HX_STACK_LINE(163)
+		HX_STACK_LINE(179)
 		this->p1->x = this->trailSprite->x;
-		HX_STACK_LINE(164)
+		HX_STACK_LINE(180)
 		this->p1->y = this->trailSprite->y;
-		HX_STACK_LINE(169)
+		HX_STACK_LINE(185)
 		if (((this->notTouching == true))){
-			HX_STACK_LINE(169)
+			HX_STACK_LINE(185)
 			if (((::org::flixel::plugin::photonstorm::FlxVelocity_obj::distanceBetween(this->trailSprite,this->mouseSprite) >= (int)50))){
-				HX_STACK_LINE(171)
+				HX_STACK_LINE(187)
 				::org::flixel::plugin::photonstorm::FlxVelocity_obj::moveTowardsObject(this->trailSprite,this->mouseSprite,(int)160,null());
 			}
 		}
-		HX_STACK_LINE(180)
+		HX_STACK_LINE(196)
 		this->detector->x = this->p1->x;
-		HX_STACK_LINE(181)
+		HX_STACK_LINE(197)
 		this->detector->y = this->p1->y;
-		HX_STACK_LINE(183)
+		HX_STACK_LINE(199)
 		if (((this->tailLength < (int)30))){
-			HX_STACK_LINE(184)
+			HX_STACK_LINE(200)
 			this->detector->width = (int)60;
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(201)
 			this->detector->height = (int)60;
 		}
-		HX_STACK_LINE(188)
+		HX_STACK_LINE(204)
 		if (((bool((this->tailLength > (int)30)) && bool((this->tailLength < (int)40))))){
-			HX_STACK_LINE(189)
+			HX_STACK_LINE(205)
 			this->detector->width = (int)80;
-			HX_STACK_LINE(190)
+			HX_STACK_LINE(206)
 			this->detector->height = (int)80;
 		}
-		HX_STACK_LINE(193)
+		HX_STACK_LINE(209)
 		if (((bool((this->tailLength > (int)40)) && bool((this->tailLength < (int)50))))){
-			HX_STACK_LINE(194)
+			HX_STACK_LINE(210)
 			this->detector->width = (int)100;
-			HX_STACK_LINE(195)
+			HX_STACK_LINE(211)
 			this->detector->height = (int)100;
 		}
-		struct _Function_1_1{
-			inline static bool Block( ::BaseLevel_obj *__this){
-				HX_STACK_PUSH("*::closure","BaseLevel.hx",200);
-				{
-					HX_STACK_LINE(200)
-					::org::flixel::FlxBasic ObjectOrGroup1 = __this->detector;		HX_STACK_VAR(ObjectOrGroup1,"ObjectOrGroup1");
-					::org::flixel::FlxBasic ObjectOrGroup2 = __this->dust1;		HX_STACK_VAR(ObjectOrGroup2,"ObjectOrGroup2");
-					Dynamic NotifyCallback = null();		HX_STACK_VAR(NotifyCallback,"NotifyCallback");
-					Dynamic ProcessCallback = null();		HX_STACK_VAR(ProcessCallback,"ProcessCallback");
-					HX_STACK_LINE(200)
-					if (((ObjectOrGroup1 == null()))){
-						HX_STACK_LINE(200)
-						ObjectOrGroup1 = ::org::flixel::FlxG_obj::getState();
-					}
-					HX_STACK_LINE(200)
-					if (((ObjectOrGroup2 == ObjectOrGroup1))){
-						HX_STACK_LINE(200)
-						ObjectOrGroup2 = null();
-					}
-					HX_STACK_LINE(200)
-					::org::flixel::system::FlxQuadTree_obj::divisions = ::org::flixel::FlxG_obj::worldDivisions;
-					HX_STACK_LINE(200)
-					::org::flixel::system::FlxQuadTree quadTree = ::org::flixel::system::FlxQuadTree_obj::recycle(::org::flixel::FlxG_obj::worldBounds->x,::org::flixel::FlxG_obj::worldBounds->y,::org::flixel::FlxG_obj::worldBounds->width,::org::flixel::FlxG_obj::worldBounds->height,null());		HX_STACK_VAR(quadTree,"quadTree");
-					HX_STACK_LINE(200)
-					quadTree->load(ObjectOrGroup1,ObjectOrGroup2,NotifyCallback,ProcessCallback);
-					HX_STACK_LINE(200)
-					bool result = quadTree->execute();		HX_STACK_VAR(result,"result");
-					HX_STACK_LINE(200)
-					quadTree->destroy();
-					HX_STACK_LINE(200)
-					return result;
-				}
-				return null();
-			}
-		};
-		HX_STACK_LINE(200)
-		if ((_Function_1_1::Block(this))){
-			HX_STACK_LINE(201)
-			this->trail->increaseLength((int)5);
-			HX_STACK_LINE(202)
+		HX_STACK_LINE(217)
+		if (((bool(this->PNpoly(this->point1,this->point0,this->trail->recentPositions)) && bool((this->detector->exists == true))))){
+			HX_STACK_LINE(218)
 			this->dust1->exists = false;
-			HX_STACK_LINE(203)
-			(this->score)++;
-			HX_STACK_LINE(204)
-			this->trail->increaseLength((int)5);
-			HX_STACK_LINE(205)
-			hx::AddEq(this->tailLength,(int)5);
-			HX_STACK_LINE(206)
-			this->deathTimer = (int)0;
-		}
-		struct _Function_1_2{
-			inline static bool Block( ::BaseLevel_obj *__this){
-				HX_STACK_PUSH("*::closure","BaseLevel.hx",210);
-				{
-					HX_STACK_LINE(210)
-					::org::flixel::FlxBasic ObjectOrGroup1 = __this->detector;		HX_STACK_VAR(ObjectOrGroup1,"ObjectOrGroup1");
-					::org::flixel::FlxBasic ObjectOrGroup2 = __this->dust2;		HX_STACK_VAR(ObjectOrGroup2,"ObjectOrGroup2");
-					Dynamic NotifyCallback = null();		HX_STACK_VAR(NotifyCallback,"NotifyCallback");
-					Dynamic ProcessCallback = null();		HX_STACK_VAR(ProcessCallback,"ProcessCallback");
-					HX_STACK_LINE(210)
-					if (((ObjectOrGroup1 == null()))){
-						HX_STACK_LINE(210)
-						ObjectOrGroup1 = ::org::flixel::FlxG_obj::getState();
-					}
-					HX_STACK_LINE(210)
-					if (((ObjectOrGroup2 == ObjectOrGroup1))){
-						HX_STACK_LINE(210)
-						ObjectOrGroup2 = null();
-					}
-					HX_STACK_LINE(210)
-					::org::flixel::system::FlxQuadTree_obj::divisions = ::org::flixel::FlxG_obj::worldDivisions;
-					HX_STACK_LINE(210)
-					::org::flixel::system::FlxQuadTree quadTree = ::org::flixel::system::FlxQuadTree_obj::recycle(::org::flixel::FlxG_obj::worldBounds->x,::org::flixel::FlxG_obj::worldBounds->y,::org::flixel::FlxG_obj::worldBounds->width,::org::flixel::FlxG_obj::worldBounds->height,null());		HX_STACK_VAR(quadTree,"quadTree");
-					HX_STACK_LINE(210)
-					quadTree->load(ObjectOrGroup1,ObjectOrGroup2,NotifyCallback,ProcessCallback);
-					HX_STACK_LINE(210)
-					bool result = quadTree->execute();		HX_STACK_VAR(result,"result");
-					HX_STACK_LINE(210)
-					quadTree->destroy();
-					HX_STACK_LINE(210)
-					return result;
-				}
-				return null();
-			}
-		};
-		HX_STACK_LINE(210)
-		if ((_Function_1_2::Block(this))){
-			HX_STACK_LINE(211)
-			this->dust2->exists = false;
-			HX_STACK_LINE(212)
-			(this->score)++;
-			HX_STACK_LINE(213)
-			this->trail->increaseLength((int)5);
-			HX_STACK_LINE(214)
-			hx::AddEq(this->tailLength,(int)5);
-			HX_STACK_LINE(215)
-			this->deathTimer = (int)0;
-		}
-		struct _Function_1_3{
-			inline static bool Block( ::BaseLevel_obj *__this){
-				HX_STACK_PUSH("*::closure","BaseLevel.hx",218);
-				{
-					HX_STACK_LINE(218)
-					::org::flixel::FlxBasic ObjectOrGroup1 = __this->detector;		HX_STACK_VAR(ObjectOrGroup1,"ObjectOrGroup1");
-					::org::flixel::FlxBasic ObjectOrGroup2 = __this->dust3;		HX_STACK_VAR(ObjectOrGroup2,"ObjectOrGroup2");
-					Dynamic NotifyCallback = null();		HX_STACK_VAR(NotifyCallback,"NotifyCallback");
-					Dynamic ProcessCallback = null();		HX_STACK_VAR(ProcessCallback,"ProcessCallback");
-					HX_STACK_LINE(218)
-					if (((ObjectOrGroup1 == null()))){
-						HX_STACK_LINE(218)
-						ObjectOrGroup1 = ::org::flixel::FlxG_obj::getState();
-					}
-					HX_STACK_LINE(218)
-					if (((ObjectOrGroup2 == ObjectOrGroup1))){
-						HX_STACK_LINE(218)
-						ObjectOrGroup2 = null();
-					}
-					HX_STACK_LINE(218)
-					::org::flixel::system::FlxQuadTree_obj::divisions = ::org::flixel::FlxG_obj::worldDivisions;
-					HX_STACK_LINE(218)
-					::org::flixel::system::FlxQuadTree quadTree = ::org::flixel::system::FlxQuadTree_obj::recycle(::org::flixel::FlxG_obj::worldBounds->x,::org::flixel::FlxG_obj::worldBounds->y,::org::flixel::FlxG_obj::worldBounds->width,::org::flixel::FlxG_obj::worldBounds->height,null());		HX_STACK_VAR(quadTree,"quadTree");
-					HX_STACK_LINE(218)
-					quadTree->load(ObjectOrGroup1,ObjectOrGroup2,NotifyCallback,ProcessCallback);
-					HX_STACK_LINE(218)
-					bool result = quadTree->execute();		HX_STACK_VAR(result,"result");
-					HX_STACK_LINE(218)
-					quadTree->destroy();
-					HX_STACK_LINE(218)
-					return result;
-				}
-				return null();
-			}
-		};
-		HX_STACK_LINE(218)
-		if ((_Function_1_3::Block(this))){
 			HX_STACK_LINE(219)
-			this->dust3->exists = false;
+			this->point1->x = (int)0;
 			HX_STACK_LINE(220)
-			(this->score)++;
+			this->point1->y = (int)0;
 			HX_STACK_LINE(221)
-			this->trail->increaseLength((int)5);
+			(this->score)++;
 			HX_STACK_LINE(222)
-			hx::AddEq(this->tailLength,(int)5);
+			this->trail->increaseLength((int)5);
 			HX_STACK_LINE(223)
+			hx::AddEq(this->tailLength,(int)5);
+			HX_STACK_LINE(224)
 			this->deathTimer = (int)0;
 		}
-		struct _Function_1_4{
-			inline static bool Block( ::BaseLevel_obj *__this){
-				HX_STACK_PUSH("*::closure","BaseLevel.hx",226);
-				{
-					HX_STACK_LINE(226)
-					::org::flixel::FlxBasic ObjectOrGroup1 = __this->detector;		HX_STACK_VAR(ObjectOrGroup1,"ObjectOrGroup1");
-					::org::flixel::FlxBasic ObjectOrGroup2 = __this->dust4;		HX_STACK_VAR(ObjectOrGroup2,"ObjectOrGroup2");
-					Dynamic NotifyCallback = null();		HX_STACK_VAR(NotifyCallback,"NotifyCallback");
-					Dynamic ProcessCallback = null();		HX_STACK_VAR(ProcessCallback,"ProcessCallback");
-					HX_STACK_LINE(226)
-					if (((ObjectOrGroup1 == null()))){
-						HX_STACK_LINE(226)
-						ObjectOrGroup1 = ::org::flixel::FlxG_obj::getState();
-					}
-					HX_STACK_LINE(226)
-					if (((ObjectOrGroup2 == ObjectOrGroup1))){
-						HX_STACK_LINE(226)
-						ObjectOrGroup2 = null();
-					}
-					HX_STACK_LINE(226)
-					::org::flixel::system::FlxQuadTree_obj::divisions = ::org::flixel::FlxG_obj::worldDivisions;
-					HX_STACK_LINE(226)
-					::org::flixel::system::FlxQuadTree quadTree = ::org::flixel::system::FlxQuadTree_obj::recycle(::org::flixel::FlxG_obj::worldBounds->x,::org::flixel::FlxG_obj::worldBounds->y,::org::flixel::FlxG_obj::worldBounds->width,::org::flixel::FlxG_obj::worldBounds->height,null());		HX_STACK_VAR(quadTree,"quadTree");
-					HX_STACK_LINE(226)
-					quadTree->load(ObjectOrGroup1,ObjectOrGroup2,NotifyCallback,ProcessCallback);
-					HX_STACK_LINE(226)
-					bool result = quadTree->execute();		HX_STACK_VAR(result,"result");
-					HX_STACK_LINE(226)
-					quadTree->destroy();
-					HX_STACK_LINE(226)
-					return result;
-				}
-				return null();
-			}
-		};
-		HX_STACK_LINE(226)
-		if ((_Function_1_4::Block(this))){
-			HX_STACK_LINE(227)
-			this->dust4->exists = false;
-			HX_STACK_LINE(228)
-			(this->score)++;
-			HX_STACK_LINE(229)
-			this->trail->increaseLength((int)5);
+		HX_STACK_LINE(229)
+		if (((bool(this->PNpoly(this->point2,this->point0,this->trail->recentPositions)) && bool((this->detector->exists == true))))){
 			HX_STACK_LINE(230)
-			hx::AddEq(this->tailLength,(int)5);
+			this->dust2->exists = false;
 			HX_STACK_LINE(231)
-			this->deathTimer = (int)0;
-		}
-		struct _Function_1_5{
-			inline static bool Block( ::BaseLevel_obj *__this){
-				HX_STACK_PUSH("*::closure","BaseLevel.hx",234);
-				{
-					HX_STACK_LINE(234)
-					::org::flixel::FlxBasic ObjectOrGroup1 = __this->detector;		HX_STACK_VAR(ObjectOrGroup1,"ObjectOrGroup1");
-					::org::flixel::FlxBasic ObjectOrGroup2 = __this->dust5;		HX_STACK_VAR(ObjectOrGroup2,"ObjectOrGroup2");
-					Dynamic NotifyCallback = null();		HX_STACK_VAR(NotifyCallback,"NotifyCallback");
-					Dynamic ProcessCallback = null();		HX_STACK_VAR(ProcessCallback,"ProcessCallback");
-					HX_STACK_LINE(234)
-					if (((ObjectOrGroup1 == null()))){
-						HX_STACK_LINE(234)
-						ObjectOrGroup1 = ::org::flixel::FlxG_obj::getState();
-					}
-					HX_STACK_LINE(234)
-					if (((ObjectOrGroup2 == ObjectOrGroup1))){
-						HX_STACK_LINE(234)
-						ObjectOrGroup2 = null();
-					}
-					HX_STACK_LINE(234)
-					::org::flixel::system::FlxQuadTree_obj::divisions = ::org::flixel::FlxG_obj::worldDivisions;
-					HX_STACK_LINE(234)
-					::org::flixel::system::FlxQuadTree quadTree = ::org::flixel::system::FlxQuadTree_obj::recycle(::org::flixel::FlxG_obj::worldBounds->x,::org::flixel::FlxG_obj::worldBounds->y,::org::flixel::FlxG_obj::worldBounds->width,::org::flixel::FlxG_obj::worldBounds->height,null());		HX_STACK_VAR(quadTree,"quadTree");
-					HX_STACK_LINE(234)
-					quadTree->load(ObjectOrGroup1,ObjectOrGroup2,NotifyCallback,ProcessCallback);
-					HX_STACK_LINE(234)
-					bool result = quadTree->execute();		HX_STACK_VAR(result,"result");
-					HX_STACK_LINE(234)
-					quadTree->destroy();
-					HX_STACK_LINE(234)
-					return result;
-				}
-				return null();
-			}
-		};
-		HX_STACK_LINE(234)
-		if ((_Function_1_5::Block(this))){
+			this->point2->x = (int)0;
+			HX_STACK_LINE(232)
+			this->point2->y = (int)0;
+			HX_STACK_LINE(233)
+			(this->score)++;
+			HX_STACK_LINE(234)
+			this->trail->increaseLength((int)5);
 			HX_STACK_LINE(235)
-			this->dust5->exists = false;
+			hx::AddEq(this->tailLength,(int)5);
 			HX_STACK_LINE(236)
-			(this->score)++;
-			HX_STACK_LINE(237)
-			this->trail->increaseLength((int)5);
-			HX_STACK_LINE(238)
-			hx::AddEq(this->tailLength,(int)5);
-			HX_STACK_LINE(239)
 			this->deathTimer = (int)0;
 		}
-		struct _Function_1_6{
-			inline static bool Block( ::BaseLevel_obj *__this){
-				HX_STACK_PUSH("*::closure","BaseLevel.hx",242);
-				{
-					HX_STACK_LINE(242)
-					::org::flixel::FlxBasic ObjectOrGroup1 = __this->detector;		HX_STACK_VAR(ObjectOrGroup1,"ObjectOrGroup1");
-					::org::flixel::FlxBasic ObjectOrGroup2 = __this->dust6;		HX_STACK_VAR(ObjectOrGroup2,"ObjectOrGroup2");
-					Dynamic NotifyCallback = null();		HX_STACK_VAR(NotifyCallback,"NotifyCallback");
-					Dynamic ProcessCallback = null();		HX_STACK_VAR(ProcessCallback,"ProcessCallback");
-					HX_STACK_LINE(242)
-					if (((ObjectOrGroup1 == null()))){
-						HX_STACK_LINE(242)
-						ObjectOrGroup1 = ::org::flixel::FlxG_obj::getState();
-					}
-					HX_STACK_LINE(242)
-					if (((ObjectOrGroup2 == ObjectOrGroup1))){
-						HX_STACK_LINE(242)
-						ObjectOrGroup2 = null();
-					}
-					HX_STACK_LINE(242)
-					::org::flixel::system::FlxQuadTree_obj::divisions = ::org::flixel::FlxG_obj::worldDivisions;
-					HX_STACK_LINE(242)
-					::org::flixel::system::FlxQuadTree quadTree = ::org::flixel::system::FlxQuadTree_obj::recycle(::org::flixel::FlxG_obj::worldBounds->x,::org::flixel::FlxG_obj::worldBounds->y,::org::flixel::FlxG_obj::worldBounds->width,::org::flixel::FlxG_obj::worldBounds->height,null());		HX_STACK_VAR(quadTree,"quadTree");
-					HX_STACK_LINE(242)
-					quadTree->load(ObjectOrGroup1,ObjectOrGroup2,NotifyCallback,ProcessCallback);
-					HX_STACK_LINE(242)
-					bool result = quadTree->execute();		HX_STACK_VAR(result,"result");
-					HX_STACK_LINE(242)
-					quadTree->destroy();
-					HX_STACK_LINE(242)
-					return result;
-				}
-				return null();
-			}
-		};
-		HX_STACK_LINE(242)
-		if ((_Function_1_6::Block(this))){
+		HX_STACK_LINE(239)
+		if (((bool(this->PNpoly(this->point3,this->point0,this->trail->recentPositions)) && bool((this->detector->exists == true))))){
+			HX_STACK_LINE(240)
+			this->dust3->exists = false;
+			HX_STACK_LINE(241)
+			this->point3->x = (int)0;
+			HX_STACK_LINE(242)
+			this->point3->y = (int)0;
 			HX_STACK_LINE(243)
-			this->dust6->exists = false;
-			HX_STACK_LINE(244)
 			(this->score)++;
-			HX_STACK_LINE(245)
+			HX_STACK_LINE(244)
 			this->trail->increaseLength((int)5);
-			HX_STACK_LINE(246)
+			HX_STACK_LINE(245)
 			hx::AddEq(this->tailLength,(int)5);
-			HX_STACK_LINE(247)
+			HX_STACK_LINE(246)
 			this->deathTimer = (int)0;
 		}
-		HX_STACK_LINE(256)
-		{
+		HX_STACK_LINE(249)
+		if (((bool(this->PNpoly(this->point4,this->point0,this->trail->recentPositions)) && bool((this->detector->exists == true))))){
+			HX_STACK_LINE(250)
+			this->dust4->exists = false;
+			HX_STACK_LINE(251)
+			this->point4->x = (int)0;
+			HX_STACK_LINE(252)
+			this->point4->y = (int)0;
+			HX_STACK_LINE(253)
+			(this->score)++;
+			HX_STACK_LINE(254)
+			this->trail->increaseLength((int)5);
+			HX_STACK_LINE(255)
+			hx::AddEq(this->tailLength,(int)5);
 			HX_STACK_LINE(256)
+			this->deathTimer = (int)0;
+		}
+		HX_STACK_LINE(259)
+		if (((bool(this->PNpoly(this->point5,this->point0,this->trail->recentPositions)) && bool((this->detector->exists == true))))){
+			HX_STACK_LINE(260)
+			this->dust5->exists = false;
+			HX_STACK_LINE(261)
+			this->point5->x = (int)0;
+			HX_STACK_LINE(262)
+			this->point5->y = (int)0;
+			HX_STACK_LINE(263)
+			(this->score)++;
+			HX_STACK_LINE(264)
+			this->trail->increaseLength((int)5);
+			HX_STACK_LINE(265)
+			hx::AddEq(this->tailLength,(int)5);
+			HX_STACK_LINE(266)
+			this->deathTimer = (int)0;
+		}
+		HX_STACK_LINE(269)
+		if (((bool(this->PNpoly(this->point6,this->point0,this->trail->recentPositions)) && bool((this->detector->exists == true))))){
+			HX_STACK_LINE(270)
+			this->dust6->exists = false;
+			HX_STACK_LINE(271)
+			this->point6->x = (int)0;
+			HX_STACK_LINE(272)
+			this->point6->y = (int)0;
+			HX_STACK_LINE(273)
+			(this->score)++;
+			HX_STACK_LINE(274)
+			this->trail->increaseLength((int)5);
+			HX_STACK_LINE(275)
+			hx::AddEq(this->tailLength,(int)5);
+			HX_STACK_LINE(276)
+			this->deathTimer = (int)0;
+		}
+		HX_STACK_LINE(288)
+		{
+			HX_STACK_LINE(288)
 			int _g1 = (int)9;		HX_STACK_VAR(_g1,"_g1");
 			int _g = this->tailLength;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(256)
+			HX_STACK_LINE(288)
 			while(((_g1 < _g))){
-				HX_STACK_LINE(256)
+				HX_STACK_LINE(288)
 				int i = (_g1)++;		HX_STACK_VAR(i,"i");
 				struct _Function_3_1{
 					inline static bool Block( ::BaseLevel_obj *__this,int &i){
-						HX_STACK_PUSH("*::closure","BaseLevel.hx",257);
+						HX_STACK_PUSH("*::closure","BaseLevel.hx",289);
 						{
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							::org::flixel::FlxBasic ObjectOrGroup1 = __this->p1;		HX_STACK_VAR(ObjectOrGroup1,"ObjectOrGroup1");
 							::org::flixel::FlxBasic ObjectOrGroup2 = __this->trail->members->__get(i);		HX_STACK_VAR(ObjectOrGroup2,"ObjectOrGroup2");
 							Dynamic NotifyCallback = null();		HX_STACK_VAR(NotifyCallback,"NotifyCallback");
 							Dynamic ProcessCallback = null();		HX_STACK_VAR(ProcessCallback,"ProcessCallback");
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							if (((ObjectOrGroup1 == null()))){
-								HX_STACK_LINE(257)
+								HX_STACK_LINE(289)
 								ObjectOrGroup1 = ::org::flixel::FlxG_obj::getState();
 							}
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							if (((ObjectOrGroup2 == ObjectOrGroup1))){
-								HX_STACK_LINE(257)
+								HX_STACK_LINE(289)
 								ObjectOrGroup2 = null();
 							}
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							::org::flixel::system::FlxQuadTree_obj::divisions = ::org::flixel::FlxG_obj::worldDivisions;
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							::org::flixel::system::FlxQuadTree quadTree = ::org::flixel::system::FlxQuadTree_obj::recycle(::org::flixel::FlxG_obj::worldBounds->x,::org::flixel::FlxG_obj::worldBounds->y,::org::flixel::FlxG_obj::worldBounds->width,::org::flixel::FlxG_obj::worldBounds->height,null());		HX_STACK_VAR(quadTree,"quadTree");
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							quadTree->load(ObjectOrGroup1,ObjectOrGroup2,NotifyCallback,ProcessCallback);
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							bool result = quadTree->execute();		HX_STACK_VAR(result,"result");
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							quadTree->destroy();
-							HX_STACK_LINE(257)
+							HX_STACK_LINE(289)
 							return result;
 						}
 						return null();
 					}
 				};
-				HX_STACK_LINE(257)
+				HX_STACK_LINE(289)
 				if ((_Function_3_1::Block(this,i))){
-					HX_STACK_LINE(257)
+					HX_STACK_LINE(289)
 					this->detect();
 				}
 			}
 		}
-		HX_STACK_LINE(272)
+		HX_STACK_LINE(304)
 		if ((::org::flixel::plugin::photonstorm::FlxCollision_obj::pixelPerfectPointCheck(::Std_obj::_int((this->p1->x - (int)1)),::Std_obj::_int((this->p1->y - (int)1)),this->BG,(int)1))){
-			HX_STACK_LINE(273)
+			HX_STACK_LINE(305)
 			this->notTouching = false;
-			HX_STACK_LINE(274)
+			HX_STACK_LINE(306)
 			hx::AddEq(this->trailSprite->velocity->x,(int)40);
-			HX_STACK_LINE(275)
+			HX_STACK_LINE(307)
 			hx::AddEq(this->trailSprite->velocity->y,(int)40);
-			HX_STACK_LINE(276)
+			HX_STACK_LINE(308)
 			this->topLeft = true;
 		}
 		else{
-			HX_STACK_LINE(280)
+			HX_STACK_LINE(312)
 			if ((::org::flixel::plugin::photonstorm::FlxCollision_obj::pixelPerfectPointCheck(::Std_obj::_int(((this->p1->x + this->p1->width) + (int)1)),::Std_obj::_int((this->p1->y - (int)1)),this->BG,(int)1))){
-				HX_STACK_LINE(281)
+				HX_STACK_LINE(313)
 				this->notTouching = false;
-				HX_STACK_LINE(282)
+				HX_STACK_LINE(314)
 				hx::SubEq(this->trailSprite->velocity->x,(int)40);
-				HX_STACK_LINE(283)
+				HX_STACK_LINE(315)
 				hx::AddEq(this->trailSprite->velocity->y,(int)40);
-				HX_STACK_LINE(284)
+				HX_STACK_LINE(316)
 				this->topRight = true;
 			}
 			else{
-				HX_STACK_LINE(288)
+				HX_STACK_LINE(320)
 				if ((::org::flixel::plugin::photonstorm::FlxCollision_obj::pixelPerfectPointCheck(::Std_obj::_int((this->p1->x - (int)1)),::Std_obj::_int(((this->p1->y + this->p1->height) + (int)1)),this->BG,(int)1))){
-					HX_STACK_LINE(289)
+					HX_STACK_LINE(321)
 					this->notTouching = false;
-					HX_STACK_LINE(290)
+					HX_STACK_LINE(322)
 					hx::AddEq(this->trailSprite->velocity->x,(int)40);
-					HX_STACK_LINE(291)
+					HX_STACK_LINE(323)
 					hx::SubEq(this->trailSprite->velocity->y,(int)40);
-					HX_STACK_LINE(292)
+					HX_STACK_LINE(324)
 					this->bottomLeft = true;
 				}
 				else{
-					HX_STACK_LINE(296)
+					HX_STACK_LINE(328)
 					if ((::org::flixel::plugin::photonstorm::FlxCollision_obj::pixelPerfectPointCheck(::Std_obj::_int(((this->p1->x + this->p1->width) + (int)1)),::Std_obj::_int(((this->p1->y + this->p1->height) + (int)1)),this->BG,(int)1))){
-						HX_STACK_LINE(297)
+						HX_STACK_LINE(329)
 						this->notTouching = false;
-						HX_STACK_LINE(298)
+						HX_STACK_LINE(330)
 						hx::SubEq(this->trailSprite->velocity->x,(int)40);
-						HX_STACK_LINE(299)
+						HX_STACK_LINE(331)
 						hx::SubEq(this->trailSprite->velocity->y,(int)40);
-						HX_STACK_LINE(300)
+						HX_STACK_LINE(332)
 						this->bottomRight = true;
 					}
 					else{
-						HX_STACK_LINE(305)
+						HX_STACK_LINE(337)
 						this->notTouching = true;
-						HX_STACK_LINE(306)
+						HX_STACK_LINE(338)
 						this->topLeft = false;
-						HX_STACK_LINE(307)
+						HX_STACK_LINE(339)
 						this->topRight = false;
-						HX_STACK_LINE(308)
+						HX_STACK_LINE(340)
 						this->bottomLeft = false;
-						HX_STACK_LINE(309)
+						HX_STACK_LINE(341)
 						this->bottomRight = false;
 					}
 				}
 			}
 		}
-		HX_STACK_LINE(312)
+		HX_STACK_LINE(344)
 		if ((::org::flixel::plugin::photonstorm::FlxCollision_obj::pixelPerfectPointCheck(::Std_obj::_int(((this->p1->x + (Float(this->p1->width) / Float((int)2))) - (int)1)),::Std_obj::_int(((this->p1->y + (Float(this->p1->height) / Float((int)2))) - (int)1)),this->BG,(int)1))){
-			HX_STACK_LINE(313)
+			HX_STACK_LINE(345)
 			(this->outTimer)++;
-			HX_STACK_LINE(315)
+			HX_STACK_LINE(347)
 			if (((this->outTimer >= (int)10))){
-				HX_STACK_LINE(317)
+				HX_STACK_LINE(349)
 				this->trailSprite->x = (int)100;
-				HX_STACK_LINE(318)
+				HX_STACK_LINE(350)
 				this->trailSprite->y = (int)200;
-				HX_STACK_LINE(319)
+				HX_STACK_LINE(351)
 				this->outTimer = (int)0;
 			}
 		}
@@ -677,71 +525,87 @@ return null();
 
 Void BaseLevel_obj::create( ){
 {
-		HX_STACK_PUSH("BaseLevel::create","BaseLevel.hx",55);
+		HX_STACK_PUSH("BaseLevel::create","BaseLevel.hx",63);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(56)
-		::org::flixel::FlxG_obj::setBgColor((int)-12510437);
-		HX_STACK_LINE(57)
-		::org::flixel::FlxG_obj::mouse->show(HX_CSTRING("assets/curs.png"),null(),null(),null());
 		HX_STACK_LINE(64)
-		this->BG = ::BG1_obj::__new((int)-500,(int)-650);
+		::org::flixel::FlxG_obj::setBgColor((int)-12510437);
 		HX_STACK_LINE(65)
-		this->add(this->BG);
-		HX_STACK_LINE(68)
-		this->dust1 = ::Stardust_obj::__new((int)150,(int)430);
-		HX_STACK_LINE(69)
-		this->dust2 = ::Stardust_obj::__new((int)140,(int)470);
-		HX_STACK_LINE(70)
-		this->dust3 = ::Stardust_obj::__new((int)350,(int)250);
-		HX_STACK_LINE(71)
-		this->dust4 = ::Stardust_obj::__new((int)190,(int)330);
+		::org::flixel::FlxG_obj::mouse->show(null(),null(),null(),null());
 		HX_STACK_LINE(72)
-		this->dust5 = ::Stardust_obj::__new((int)380,(int)290);
+		this->BG = ::BG1_obj::__new((int)-500,(int)-650);
 		HX_STACK_LINE(73)
-		this->dust6 = ::Stardust_obj::__new((int)220,(int)1);
-		HX_STACK_LINE(77)
-		this->add(this->dust3);
+		this->add(this->BG);
+		HX_STACK_LINE(76)
+		this->point0 = ::org::flixel::FlxPoint_obj::__new((int)0,(int)0);
 		HX_STACK_LINE(78)
-		this->add(this->dust4);
+		this->point1 = ::org::flixel::FlxPoint_obj::__new((int)150,(int)430);
 		HX_STACK_LINE(79)
-		this->add(this->dust5);
+		this->dust1 = ::Stardust_obj::__new(this->point1->x,this->point1->y);
 		HX_STACK_LINE(80)
-		this->add(this->dust6);
+		this->point2 = ::org::flixel::FlxPoint_obj::__new((int)140,(int)470);
+		HX_STACK_LINE(81)
+		this->dust2 = ::Stardust_obj::__new(this->point2->x,this->point2->y);
+		HX_STACK_LINE(82)
+		this->point3 = ::org::flixel::FlxPoint_obj::__new((int)350,(int)250);
 		HX_STACK_LINE(83)
-		this->mouseSprite = ::org::flixel::FlxSprite_obj::__new((int)0,(int)0,HX_CSTRING("assets/player.png"));
+		this->dust3 = ::Stardust_obj::__new(this->point3->x,this->point3->y);
 		HX_STACK_LINE(84)
-		this->mouseSprite->visible = false;
+		this->point4 = ::org::flixel::FlxPoint_obj::__new((int)190,(int)330);
 		HX_STACK_LINE(85)
-		this->add(this->mouseSprite);
+		this->dust4 = ::Stardust_obj::__new(this->point4->x,this->point4->y);
+		HX_STACK_LINE(86)
+		this->point5 = ::org::flixel::FlxPoint_obj::__new((int)380,(int)290);
+		HX_STACK_LINE(87)
+		this->dust5 = ::Stardust_obj::__new(this->point5->x,this->point5->y);
+		HX_STACK_LINE(88)
+		this->point6 = ::org::flixel::FlxPoint_obj::__new((int)220,(int)-30);
 		HX_STACK_LINE(89)
-		this->trailSprite = ::org::flixel::FlxSprite_obj::__new((int)100,(int)400,HX_CSTRING("assets/playerSprite.png"));
-		HX_STACK_LINE(90)
-		this->trail = ::NewFlxTrail_obj::__new(this->trailSprite,HX_CSTRING("assets/player.png"),this->tailLength,(int)2,.99,.01);
+		this->dust6 = ::Stardust_obj::__new(this->point6->x,this->point6->y);
+		HX_STACK_LINE(91)
+		this->add(this->dust1);
 		HX_STACK_LINE(93)
-		this->add(this->trail);
+		this->add(this->dust3);
 		HX_STACK_LINE(94)
-		this->add(this->trailSprite);
-		HX_STACK_LINE(98)
-		this->p1 = ::Player_obj::__new((int)0,(int)0);
+		this->add(this->dust4);
+		HX_STACK_LINE(95)
+		this->add(this->dust5);
+		HX_STACK_LINE(96)
+		this->add(this->dust6);
 		HX_STACK_LINE(99)
-		this->add(this->p1);
-		HX_STACK_LINE(103)
-		this->levelText = ::org::flixel::FlxText_obj::__new((int)12,(int)12,(int)800,HX_CSTRING("base level"),null());
-		HX_STACK_LINE(104)
-		this->levelText->setSize((int)20);
+		this->mouseSprite = ::org::flixel::FlxSprite_obj::__new((int)0,(int)0,HX_CSTRING("assets/player.png"));
+		HX_STACK_LINE(100)
+		this->mouseSprite->visible = false;
+		HX_STACK_LINE(101)
+		this->add(this->mouseSprite);
 		HX_STACK_LINE(105)
-		this->levelText->setFont(::nme::installer::Assets_obj::getFont(HX_CSTRING("assets/CHALONSE.TTF"))->fontName);
+		this->trailSprite = ::org::flixel::FlxSprite_obj::__new((int)100,(int)400,HX_CSTRING("assets/playerSprite.png"));
 		HX_STACK_LINE(106)
-		this->levelText->setText((HX_CSTRING("level ") + ::Std_obj::string(::Global_obj::level)));
+		this->trail = ::NewFlxTrail_obj::__new(this->trailSprite,HX_CSTRING("assets/player.png"),this->tailLength,(int)2,.99,.01);
+		HX_STACK_LINE(109)
+		this->add(this->trail);
 		HX_STACK_LINE(110)
+		this->add(this->trailSprite);
+		HX_STACK_LINE(114)
+		this->p1 = ::Player_obj::__new((int)0,(int)0);
+		HX_STACK_LINE(115)
+		this->add(this->p1);
+		HX_STACK_LINE(119)
+		this->levelText = ::org::flixel::FlxText_obj::__new((int)12,(int)12,(int)800,HX_CSTRING("base level"),null());
+		HX_STACK_LINE(120)
+		this->levelText->setSize((int)20);
+		HX_STACK_LINE(121)
+		this->levelText->setFont(::nme::installer::Assets_obj::getFont(HX_CSTRING("assets/CHALONSE.TTF"))->fontName);
+		HX_STACK_LINE(122)
+		this->levelText->setText((HX_CSTRING("level ") + ::Std_obj::string(::Global_obj::level)));
+		HX_STACK_LINE(126)
 		this->scoreText = ::org::flixel::FlxText_obj::__new((int)44,(int)18,(int)200,null(),null());
-		HX_STACK_LINE(111)
+		HX_STACK_LINE(127)
 		this->scoreText->setSize((int)20);
-		HX_STACK_LINE(112)
+		HX_STACK_LINE(128)
 		this->scoreText->setFont(::nme::installer::Assets_obj::getFont(HX_CSTRING("assets/CHALONSE.TTF"))->fontName);
-		HX_STACK_LINE(117)
+		HX_STACK_LINE(133)
 		this->detector = ::Detector_obj::__new((int)0,(int)0);
-		HX_STACK_LINE(118)
+		HX_STACK_LINE(134)
 		this->add(this->detector);
 	}
 return null();
@@ -770,6 +634,13 @@ void BaseLevel_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(dust3,"dust3");
 	HX_MARK_MEMBER_NAME(dust2,"dust2");
 	HX_MARK_MEMBER_NAME(dust1,"dust1");
+	HX_MARK_MEMBER_NAME(point6,"point6");
+	HX_MARK_MEMBER_NAME(point5,"point5");
+	HX_MARK_MEMBER_NAME(point4,"point4");
+	HX_MARK_MEMBER_NAME(point3,"point3");
+	HX_MARK_MEMBER_NAME(point2,"point2");
+	HX_MARK_MEMBER_NAME(point1,"point1");
+	HX_MARK_MEMBER_NAME(point0,"point0");
 	HX_MARK_MEMBER_NAME(detectTimer,"detectTimer");
 	HX_MARK_MEMBER_NAME(tailTimer,"tailTimer");
 	HX_MARK_MEMBER_NAME(tailAlphaDec,"tailAlphaDec");
@@ -805,6 +676,13 @@ void BaseLevel_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(dust3,"dust3");
 	HX_VISIT_MEMBER_NAME(dust2,"dust2");
 	HX_VISIT_MEMBER_NAME(dust1,"dust1");
+	HX_VISIT_MEMBER_NAME(point6,"point6");
+	HX_VISIT_MEMBER_NAME(point5,"point5");
+	HX_VISIT_MEMBER_NAME(point4,"point4");
+	HX_VISIT_MEMBER_NAME(point3,"point3");
+	HX_VISIT_MEMBER_NAME(point2,"point2");
+	HX_VISIT_MEMBER_NAME(point1,"point1");
+	HX_VISIT_MEMBER_NAME(point0,"point0");
 	HX_VISIT_MEMBER_NAME(detectTimer,"detectTimer");
 	HX_VISIT_MEMBER_NAME(tailTimer,"tailTimer");
 	HX_VISIT_MEMBER_NAME(tailAlphaDec,"tailAlphaDec");
@@ -842,9 +720,17 @@ Dynamic BaseLevel_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"trail") ) { return trail; }
 		break;
 	case 6:
+		if (HX_FIELD_EQ(inName,"PNpoly") ) { return PNpoly_dyn(); }
 		if (HX_FIELD_EQ(inName,"detect") ) { return detect_dyn(); }
 		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
 		if (HX_FIELD_EQ(inName,"create") ) { return create_dyn(); }
+		if (HX_FIELD_EQ(inName,"point6") ) { return point6; }
+		if (HX_FIELD_EQ(inName,"point5") ) { return point5; }
+		if (HX_FIELD_EQ(inName,"point4") ) { return point4; }
+		if (HX_FIELD_EQ(inName,"point3") ) { return point3; }
+		if (HX_FIELD_EQ(inName,"point2") ) { return point2; }
+		if (HX_FIELD_EQ(inName,"point1") ) { return point1; }
+		if (HX_FIELD_EQ(inName,"point0") ) { return point0; }
 		break;
 	case 7:
 		if (HX_FIELD_EQ(inName,"topLeft") ) { return topLeft; }
@@ -899,6 +785,15 @@ Dynamic BaseLevel_obj::__SetField(const ::String &inName,const Dynamic &inValue,
 		if (HX_FIELD_EQ(inName,"score") ) { score=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"trail") ) { trail=inValue.Cast< ::NewFlxTrail >(); return inValue; }
 		break;
+	case 6:
+		if (HX_FIELD_EQ(inName,"point6") ) { point6=inValue.Cast< ::org::flixel::FlxPoint >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"point5") ) { point5=inValue.Cast< ::org::flixel::FlxPoint >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"point4") ) { point4=inValue.Cast< ::org::flixel::FlxPoint >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"point3") ) { point3=inValue.Cast< ::org::flixel::FlxPoint >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"point2") ) { point2=inValue.Cast< ::org::flixel::FlxPoint >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"point1") ) { point1=inValue.Cast< ::org::flixel::FlxPoint >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"point0") ) { point0=inValue.Cast< ::org::flixel::FlxPoint >(); return inValue; }
+		break;
 	case 7:
 		if (HX_FIELD_EQ(inName,"topLeft") ) { topLeft=inValue.Cast< bool >(); return inValue; }
 		break;
@@ -948,6 +843,13 @@ void BaseLevel_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("dust3"));
 	outFields->push(HX_CSTRING("dust2"));
 	outFields->push(HX_CSTRING("dust1"));
+	outFields->push(HX_CSTRING("point6"));
+	outFields->push(HX_CSTRING("point5"));
+	outFields->push(HX_CSTRING("point4"));
+	outFields->push(HX_CSTRING("point3"));
+	outFields->push(HX_CSTRING("point2"));
+	outFields->push(HX_CSTRING("point1"));
+	outFields->push(HX_CSTRING("point0"));
 	outFields->push(HX_CSTRING("detectTimer"));
 	outFields->push(HX_CSTRING("tailTimer"));
 	outFields->push(HX_CSTRING("tailAlphaDec"));
@@ -970,6 +872,7 @@ static ::String sStaticFields[] = {
 	String(null()) };
 
 static ::String sMemberFields[] = {
+	HX_CSTRING("PNpoly"),
 	HX_CSTRING("detect"),
 	HX_CSTRING("redrawTail"),
 	HX_CSTRING("changeLength"),
@@ -989,6 +892,13 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("dust3"),
 	HX_CSTRING("dust2"),
 	HX_CSTRING("dust1"),
+	HX_CSTRING("point6"),
+	HX_CSTRING("point5"),
+	HX_CSTRING("point4"),
+	HX_CSTRING("point3"),
+	HX_CSTRING("point2"),
+	HX_CSTRING("point1"),
+	HX_CSTRING("point0"),
 	HX_CSTRING("detectTimer"),
 	HX_CSTRING("tailTimer"),
 	HX_CSTRING("tailAlphaDec"),

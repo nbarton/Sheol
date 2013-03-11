@@ -1,18 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|Android" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|Flash" />
   <MonoDevelop.Ide.Workbench ActiveDocument="HaxeFlixel4/Source/BaseLevel.hx">
     <Files>
       <File FileName="../../../../usr/lib/haxe/lib/flixel/1,08/org/flixel/FlxAssets.hx" Line="110" Column="24" />
-      <File FileName="HaxeFlixel4/Source/BaseLevel.hx" Line="57" Column="31" />
+      <File FileName="HaxeFlixel4/Source/BaseLevel.hx" Line="207" Column="7" />
       <File FileName="HaxeFlixel4/Source/org/Detector.hx" Line="12" Column="2" />
       <File FileName="HaxeFlixel4/Source/Global.hx" Line="1" Column="1" />
       <File FileName="HaxeFlixel4/project.nmml" Line="33" Column="64" />
-      <File FileName="HaxeFlixel4/Stardust.hx" Line="1" Column="1" />
-      <File FileName="HaxeFlixel4/Source/Level1.hx" Line="15" Column="26" />
       <File FileName="HaxeFlixel4/Source/Player.hx" Line="15" Column="3" />
-      <File FileName="HaxeFlixel4/Source/HaxeFlixel4.hx" Line="19" Column="13" />
-      <File FileName="HaxeFlixel4/source/NewFlxTrail.hx" Line="180" Column="10" />
-      <File FileName="HaxeFlixel4/Source/FlixelHaxeGame.hx" Line="17" Column="37" />
+      <File FileName="HaxeFlixel4/source/NewFlxTrail.hx" Line="68" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
