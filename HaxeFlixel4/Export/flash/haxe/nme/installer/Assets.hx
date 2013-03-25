@@ -41,6 +41,8 @@ class Assets {
 		
 		if (!initialized) {
 			
+			resourceClasses.set ("assets/basetile1x.png", NME_assets_basetile1x_png);
+			resourceTypes.set ("assets/basetile1x.png", "image");
 			resourceClasses.set ("assets/basetile4x.png", NME_assets_basetile4x_png);
 			resourceTypes.set ("assets/basetile4x.png", "image");
 			resourceClasses.set ("assets/CHALONSE.TTF", NME_assets_chalonse_ttf);
@@ -101,16 +103,24 @@ class Assets {
 			resourceTypes.set ("assets/detector.png", "image");
 			resourceClasses.set ("assets/dust.png", NME_assets_dust_png);
 			resourceTypes.set ("assets/dust.png", "image");
+			resourceClasses.set ("assets/firstrock1x.png", NME_assets_firstrock1x_png);
+			resourceTypes.set ("assets/firstrock1x.png", "image");
 			resourceClasses.set ("assets/Icon.png", NME_assets_icon_png);
 			resourceTypes.set ("assets/Icon.png", "image");
 			resourceClasses.set ("assets/player.png", NME_assets_player_png);
 			resourceTypes.set ("assets/player.png", "image");
 			resourceClasses.set ("assets/playerSprite.png", NME_assets_playersprite_png);
 			resourceTypes.set ("assets/playerSprite.png", "image");
+			resourceClasses.set ("assets/secondrock1x.png", NME_assets_secondrock1x_png);
+			resourceTypes.set ("assets/secondrock1x.png", "image");
+			resourceClasses.set ("assets/thirdrock1x.png", NME_assets_thirdrock1x_png);
+			resourceTypes.set ("assets/thirdrock1x.png", "image");
 			resourceClasses.set ("assets/data/courier.ttf", NME_assets_data_courier_ttf1);
 			resourceTypes.set ("assets/data/courier.ttf", "font");
 			resourceClasses.set ("assets/data/nokiafc22.ttf", NME_assets_data_nokiafc23);
 			resourceTypes.set ("assets/data/nokiafc22.ttf", "font");
+			resourceClasses.set ("assets/basetile1x.png", NME_assets_basetile2);
+			resourceTypes.set ("assets/basetile1x.png", "image");
 			resourceClasses.set ("assets/basetile4x.png", NME_assets_basetile5);
 			resourceTypes.set ("assets/basetile4x.png", "image");
 			resourceClasses.set ("assets/curs.png", NME_assets_curs_png1);
@@ -161,12 +171,18 @@ class Assets {
 			resourceTypes.set ("assets/detector.png", "image");
 			resourceClasses.set ("assets/dust.png", NME_assets_dust_png1);
 			resourceTypes.set ("assets/dust.png", "image");
+			resourceClasses.set ("assets/firstrock1x.png", NME_assets_firstrock2);
+			resourceTypes.set ("assets/firstrock1x.png", "image");
 			resourceClasses.set ("assets/Icon.png", NME_assets_icon_png1);
 			resourceTypes.set ("assets/Icon.png", "image");
 			resourceClasses.set ("assets/player.png", NME_assets_player_png1);
 			resourceTypes.set ("assets/player.png", "image");
 			resourceClasses.set ("assets/playerSprite.png", NME_assets_playersprite_png1);
 			resourceTypes.set ("assets/playerSprite.png", "image");
+			resourceClasses.set ("assets/secondrock1x.png", NME_assets_secondrock2);
+			resourceTypes.set ("assets/secondrock1x.png", "image");
+			resourceClasses.set ("assets/thirdrock1x.png", NME_assets_thirdrock2);
+			resourceTypes.set ("assets/thirdrock1x.png", "image");
 			resourceClasses.set ("assets/data/autotiles.png", NME_assets_data_autotiles_png2);
 			resourceTypes.set ("assets/data/autotiles.png", "image");
 			resourceClasses.set ("assets/data/autotiles_alt.png", NME_assets_data_autotiles_alt_png2);

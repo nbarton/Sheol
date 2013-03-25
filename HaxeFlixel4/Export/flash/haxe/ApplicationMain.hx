@@ -97,6 +97,11 @@ class ApplicationMain {
 	public static function getAsset (inName:String):Dynamic {
 		
 		
+		if (inName=="assets/basetile1x.png")
+			 
+            return Assets.getBitmapData ("assets/basetile1x.png");
+         
+		
 		if (inName=="assets/basetile4x.png")
 			 
             return Assets.getBitmapData ("assets/basetile4x.png");
@@ -247,6 +252,11 @@ class ApplicationMain {
             return Assets.getBitmapData ("assets/dust.png");
          
 		
+		if (inName=="assets/firstrock1x.png")
+			 
+            return Assets.getBitmapData ("assets/firstrock1x.png");
+         
+		
 		if (inName=="assets/Icon.png")
 			 
             return Assets.getBitmapData ("assets/Icon.png");
@@ -262,6 +272,16 @@ class ApplicationMain {
             return Assets.getBitmapData ("assets/playerSprite.png");
          
 		
+		if (inName=="assets/secondrock1x.png")
+			 
+            return Assets.getBitmapData ("assets/secondrock1x.png");
+         
+		
+		if (inName=="assets/thirdrock1x.png")
+			 
+            return Assets.getBitmapData ("assets/thirdrock1x.png");
+         
+		
 		if (inName=="assets/data/courier.ttf")
 			 
 			 return Assets.getFont ("assets/data/courier.ttf");
@@ -271,6 +291,11 @@ class ApplicationMain {
 			 
 			 return Assets.getFont ("assets/data/nokiafc22.ttf");
 		 
+		
+		if (inName=="assets/basetile1x.png")
+			 
+            return Assets.getBitmapData ("assets/basetile1x.png");
+         
 		
 		if (inName=="assets/basetile4x.png")
 			 
@@ -397,6 +422,11 @@ class ApplicationMain {
             return Assets.getBitmapData ("assets/dust.png");
          
 		
+		if (inName=="assets/firstrock1x.png")
+			 
+            return Assets.getBitmapData ("assets/firstrock1x.png");
+         
+		
 		if (inName=="assets/Icon.png")
 			 
             return Assets.getBitmapData ("assets/Icon.png");
@@ -410,6 +440,16 @@ class ApplicationMain {
 		if (inName=="assets/playerSprite.png")
 			 
             return Assets.getBitmapData ("assets/playerSprite.png");
+         
+		
+		if (inName=="assets/secondrock1x.png")
+			 
+            return Assets.getBitmapData ("assets/secondrock1x.png");
+         
+		
+		if (inName=="assets/thirdrock1x.png")
+			 
+            return Assets.getBitmapData ("assets/thirdrock1x.png");
          
 		
 		if (inName=="assets/data/autotiles.png")
@@ -586,6 +626,7 @@ class ApplicationMain {
 	
 }
 
+class NME_assets_basetile1x_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_basetile4x_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_chalonse_ttf extends nme.text.Font { }
 class NME_assets_curs_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
@@ -616,11 +657,15 @@ class NME_assets_data_vcr_stop_png extends nme.display.BitmapData { public funct
 class NME_assets_data_vis_bounds_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_detector_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_dust_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_assets_firstrock1x_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_icon_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_player_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_playersprite_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_assets_secondrock1x_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_assets_thirdrock1x_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_data_courier_ttf1 extends nme.text.Font { }
 class NME_assets_data_nokiafc23 extends nme.text.Font { }
+class NME_assets_basetile2 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_basetile5 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_curs_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_data_autotiles_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
@@ -646,9 +691,12 @@ class NME_assets_data_vcr_stop_png1 extends nme.display.BitmapData { public func
 class NME_assets_data_vis_bounds_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_detector_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_dust_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_assets_firstrock2 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_icon_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_player_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_playersprite_png1 extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_assets_secondrock2 extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_assets_thirdrock2 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_data_autotiles_png2 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_data_autotiles_alt_png2 extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_assets_data_button_png2 extends nme.display.BitmapData { public function new () { super (0, 0); } }
