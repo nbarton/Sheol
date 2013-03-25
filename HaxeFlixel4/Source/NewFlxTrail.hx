@@ -3,6 +3,7 @@ package ;
 import org.flixel.FlxGroup;
 import org.flixel.FlxPoint;
 import org.flixel.FlxSprite;
+import org.flixel.FlxG;
 
 /**
  * Nothing too fancy, just a handy little class to attach a trail effect to a FlxSprite.
@@ -62,6 +63,8 @@ class NewFlxTrail extends FlxGroup
 	 *  Stores the sprites recent angles.
 	 */
 	public var recentAngles:Array<Float>;
+	
+	public var totalTale:Int = 20;
 
 	/**
 	 * Creates a new <code>FlxTrail</code> effect for a specific FlxSprite.
@@ -120,7 +123,7 @@ class NewFlxTrail extends FlxGroup
 
 			// Now we need to update the all the Trailsprites' values
 			var trailSprite:FlxSprite;
-			for (i in 0 ... recentPositions.length) 
+			for (i in 0 ... trailLength) 
 			{
 				trailSprite = cast(members[i]);
 				trailSprite.x = recentPositions[i].x;
@@ -132,8 +135,10 @@ class NewFlxTrail extends FlxGroup
 				trailSprite.exists = true; 
 			}
 		}
-
+		
+   
 		super.update();
+
 	}
 
 	public function resetTrail():Void
@@ -170,18 +175,11 @@ class NewFlxTrail extends FlxGroup
 	
 	public function decreaseLength(amount:Int):Void
 	{
+		if(members[0]!=null){
+			trailLength -=amount;
+		    members[trailLength].exists=false;
+		}
 	
-	if (amount <= 0) return;
-	
-	
-	
-	for (i in 0...trailLength)
-		{
-			if (i>trailLength-amount){
-				members[i].kill();
-				trailLength --;
-			}
-		}	
 	
 	}
 

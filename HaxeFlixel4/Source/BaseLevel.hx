@@ -143,7 +143,7 @@ class BaseLevel extends FlxState
 		super.update();
 		
 		
-		deathTimer++;
+		//deathTimer++;
 		FlxG.log(deathTimer);
 		
 		if (deathTimer >= 450){
@@ -157,9 +157,8 @@ class BaseLevel extends FlxState
 		//Tail Constantsly shrinking
 		tailTimer++;
 		if (tailTimer>=20){
-		//changeLength(tailLength-1);
-		//trail.decreaseLength(1);
-		tailTimer=0;
+			trail.decreaseLength(1);
+			tailTimer=0;
 		
 		}
 		

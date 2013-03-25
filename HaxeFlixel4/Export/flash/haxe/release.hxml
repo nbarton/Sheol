@@ -1,6 +1,7 @@
 -main ApplicationMain 
 -lib nme
 -lib flixel
+-lib actuate
 -cp Source
 -cp /usr/lib/haxe/lib/nme/3,5,5/
 -cp /usr/lib/haxe/lib/flixel/1,08/
